@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chitral Guest House</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      background-color: #f5f5f5;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #0c1a23;
+      padding: 15px 0;
+      border-bottom: 3px solid #0077cc;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      list-style: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #f0f0f0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: #ff5757;
+      transition: color 0.3s ease;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .hotel-details {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+      margin-top: 50px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .hotel-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .hotel-header h1 {
+      font-size: 2.5rem;
+      color: #2c3e50;
+    }
+
+
+    .hotel-gallery {
+      margin-bottom: 20px;
+    }
+
+    .hotel-gallery h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .hotel-about,
+    .hotel-facilities,
+    .hotel-reviews {
+      margin-bottom: 20px;
+    }
+
+    .hotel-about h2,
+    .hotel-facilities h2,
+    .hotel-reviews h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #34495e;
+    }
+
+    .hotel-about p,
+    .review p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .hotel-facilities ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .hotel-facilities ul li {
+      font-size: 1rem;
+      line-height: 1.8;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .hotel-facilities ul li::before {
+      content: "✔";
+      color: #27ae60;
+      position: absolute;
+      left: 0;
+    }
+
+    .hotel-reviews .review {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #f9f9f9;
+    }
+
+    .hotel-reviews .review span {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #555;
+    }
+
+    .similar-hotels {
+      padding: 20px;
+      text-align: center;
+      background-color: #fff;
+      margin-top: 50px;
+    }
+
+    .similar-hotels h2 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .cards-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hotel-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 300px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+
+    .hotel-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .hotel-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .hotel-card h3 {
+      font-size: 1.2rem;
+      margin: 15px 10px 5px;
+      color: #444;
+    }
+
+    .location {
+      font-size: 0.9rem;
+      margin: 0 10px 10px;
+      color: #888;
+    }
+
+    .facilities {
+      list-style: none;
+      padding: 0 10px 15px;
+      margin: 0;
+      color: #666;
+    }
+
+    .facilities li {
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+    }
+
+    .hotel-details {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+      margin-top: 50px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .hotel-header h1 {
+      font-size: 2.5rem;
+      color: #2c3e50;
+      text-align: center;
+    }
+
+    .hotel-gallery,
+    .hotel-about,
+    .hotel-facilities,
+    .hotel-reviews,
+    .food-menu {
+      margin-bottom: 20px;
+    }
+
+    .food-menu h2,
+    .hotel-gallery h2,
+    .hotel-about h2,
+    .hotel-facilities h2,
+    .hotel-reviews h2 {
+      font-size: 1.8rem;
+      color: #34495e;
+      margin-bottom: 10px;
+    }
+
+    .food-menu ul,
+    .hotel-facilities ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .food-menu ul li,
+    .hotel-facilities ul li {
+      font-size: 1rem;
+      line-height: 1.8;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .food-menu ul li::before,
+    .hotel-facilities ul li::before {
+      position: absolute;
+      left: 0;
+    }
+
+    .footer-section h2,
+    .footer-bottom p {
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    .footer-section a {
+      text-decoration: none;
+      color: #bbb;
+    }
+
+    .social a {
+      font-size: 20px;
+      color: #bbb;
+      margin-right: 15px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-section {
+      flex: 1;
+      margin: 10px;
+      min-width: 200px;
+    }
+
+    .footer-section h2 {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      font-size: 14px;
+      color: #bbb;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      color: #fff;
+    }
+
+    .links ul {
+      list-style: none;
+    }
+
+    .links ul li {
+      margin-bottom: 10px;
+    }
+
+    .social a {
+      color: #bbb;
+      font-size: 20px;
+      margin-right: 15px;
+      transition: color 0.3s;
+    }
+
+    .social a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 10px 0;
+      border-top: 1px solid #444;
+      margin-top: 20px;
+    }
+
+    .footer-bottom p {
+      font-size: 14px;
+      color: #bbb;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="plan.html">Plan</a></li>
+      <li><a href="bookme.html">Booking</a></li>
+    </ul>
+
+  </nav>
+
+  <main class="hotel-details">
+    <section class="hotel-header">
+      <h1 id="hotel-name">Chitral Guest House</h1>
+      <div class="hotel-rating">
+      </div>
+    </section>
+
+
+    <section class="hotel-gallery">
+      <h2>Gallery</h2>
+      <div class="image-grid">
+        <img src="front.jpg" alt="Hotel Front View">
+        <img src="room.jpg" alt="Hotel Room">
+        <img src="Dining.jpg" alt="Hotel Dining Area">
+      </div>
+    </section>
+
+    <section class="hotel-about">
+      <h2>About the Hotel</h2>
+      <p>
+        The Grand Chitral Hotel offers a blend of modern comfort and traditional hospitality.
+        Located in the heart of Chitral, it provides stunning mountain views and luxurious amenities
+        to ensure a memorable stay.
+      </p>
+    </section>
+
+    <section class="hotel-facilities">
+      <h2>Facilities</h2>
+      <ul>
+        <li>Private dining</li>
+        <li>Dry cleaning/laundry services</li>
+        <li>Wheelchair-accessible registration desk</li>
+        <li>Available in all rooms: Free WiFi</li>
+        <li>Free self parking on site</li>
+        <li></li>
+      </ul>
+    </section>
+
+
+  </main>
+
+  <main class="hotel-details">
+
+    <section class="food-menu">
+      <h2>Food Menu</h2>
+      <ul>
+        <li>Traditional Chitrali Cuisine</li>
+        <li>Grilled Trout</li>
+        <li>Chicken Karahi</li>
+        <li>Vegetarian Delights</li>
+        <li>Desserts and Beverages</li>
+      </ul>
+    </section>
+
+    <section class="hotel-contact">
+      <h2>Contact Us</h2>
+      <p>📞 Phone: <a href="tel:03239167702">03239167702</a></p>
+      <p>💬 WhatsApp: <a href="https://wa.me/03239167702" target="_blank">Message Us</a></p>
+      <p>📧 Email: <a href="mailto:info@chitralguesthouse.com">info@chitralguesthouse.com</a></p>
+      <p>📘 Facebook: <a href="https://facebook.com/chitralguesthouse" target="_blank">Follow Us</a></p>
+      <p>📷 Instagram: <a href="https://instagram.com/chitralguesthouse" target="_blank">Follow Us</a></p>
+    </section>
+  </main>
+
+  <section class="similar-hotels">
+    <h2>Similar Hotels or Guest Houses</h2>
+    <div class="cards-container">
+      <div class="hotel-card">
+        <img src="guesthouse1.jpg" alt="Chitral Guest House" class="hotel-image">
+        <h3>Chitral Valley Guest House</h3>
+        <p class="location">Chitral, Pakistan</p>
+        <ul class="facilities">
+          <li>Free Wi-Fi</li>
+          <li>Parking Available</li>
+          <li>24/7 Room Service</li>
+        </ul>
+      </div>
+      <div class="hotel-card">
+        <img src="guesthouse2.jpg" alt="Mountain View Guest House" class="hotel-image">
+        <h3>Mountain View Guest House</h3>
+        <p class="location">Ayun, Chitral</p>
+        <ul class="facilities">
+          <li>Mountain View</li>
+          <li>Free Breakfast</li>
+          <li>Family Rooms</li>
+        </ul>
+      </div>
+
+      <div class="hotel-card">
+        <img src="guesthouse3.jpg" alt="Riverfront Inn" class="hotel-image">
+        <h3>Riverfront Inn</h3>
+        <p class="location">Booni, Chitral</p>
+        <ul class="facilities">
+          <li>Near River</li>
+          <li>Outdoor Seating</li>
+          <li>Air Conditioning</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+
+      <div class="footer-section about">
+        <h2>About Us</h2>
+        <p>We specialize in connecting tourists with reliable byroad transportation options and convenient hotel booking
+          services to make your travel experience seamless and enjoyable.</p>
+      </div>
+
+      <div class="footer-section links">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section contact-info">
+        <h2>Contact Us</h2>
+        <p>📍 Address: 123 Travel Street, Adventure City</p>
+        <p>📞 Phone: <a href="tel:03239167702">03239167702</a></p>
+        <p>✉️ Email: <a href="mailto:info@travelbookings.com">info@travelbookings.com</a></p>
+        <p>💬 WhatsApp: <a href="https://wa.me/1234567890" target="_blank">Chat with Us</a></p>
+      </div>
+
+      <div class="footer-section social">
+        <h2>Follow Us</h2>
+        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 Travel & Hotel Booking | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

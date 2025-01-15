@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #faf7f0;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #0c1a23;
+            padding: 15px 0;
+            border-bottom: 3px solid #0077cc;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f0f0f0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ff5757;
+            transition: color 0.3s ease;
+        }
+
+        .container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in;
+    align-items: center;
+}
+header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #333;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+label {
+    font-weight: bold;
+}
+input, select, button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+button {
+    background: #28a745;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+button:hover {
+    background: #218838;
+}
+.weather-section {
+    margin-top: 20px;
+    text-align: center;
+}
+.weather-section h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #555;
+}
+#whatsappLink {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #25d366;
+    font-weight: bold;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="plan.html">Plan</a></li>
+            <li><a href="bookme.html">Booking</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <header>
+            <h1>Travel Booking: Islamabad to Chitral</h1>
+        </header>
+
+        <main>
+            <form id="bookingForm">
+                <label for="vehicleType">Select Vehicle Type:</label>
+                <select id="vehicleType">
+                    <option value="car">Car - PKR 5000 per passenger</option>
+                    <option value="van">Van - PKR 3000 per passenger</option>
+                    <option value="bus">Bus - PKR 1500 per passenger</option>
+                </select>
+
+                <label for="passengerCount">Number of Passengers:</label>
+                <input type="number" id="passengerCount" min="1" value="1">
+
+                <label for="travelDate">Travel Date:</label>
+                <input type="date" id="travelDate">
+
+                <div class="price-container">
+                    <p id="totalPrice">Total Price: PKR 0</p>
+                </div>
+
+                <button type="button" id="submitBtn">Book Now</button>
+            </form>
+
+            <div class="weather-section">
+                <h2>Daily Weather Update</h2>
+                <p id="weatherUpdate">Fetching weather data...</p>
+            </div>
+        </main>
+
+        <footer>
+            <a href="https://wa.me/?text=Hi%20I%20want%20to%20inquire%20about%20Islamabad%20to%20Chitral%20travel" target="_blank" id="whatsappLink">Contact via WhatsApp</a>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const vehicleType = document.getElementById('vehicleType');
+            const passengerCount = document.getElementById('passengerCount');
+            const totalPrice = document.getElementById('totalPrice');
+            const submitBtn = document.getElementById('submitBtn');
+
+            const prices = {
+                car: 5000,
+                van: 3000,
+                bus: 1500
+            };
+
+            function calculatePrice() {
+                const selectedVehicle = vehicleType.value;
+                const count = parseInt(passengerCount.value) || 0;
+                const price = prices[selectedVehicle] * count;
+                totalPrice.textContent = `Total Price: PKR ${price}`;
+            }
+
+            vehicleType.addEventListener('change', calculatePrice);
+            passengerCount.addEventListener('input', calculatePrice);
+
+            // Weather Fetching (Placeholder functionality)
+            const weatherUpdate = document.getElementById('weatherUpdate');
+            fetch('https://api.open-meteo.com/v1/forecast?latitude=35.8937&longitude=71.8120&current_weather=true')
+                .then(response => response.json())
+                .then(data => {
+                    const { temperature, weathercode } = data.current_weather;
+                    weatherUpdate.textContent = `Current Temperature: ${temperature}°C, Weather Code: ${weathercode}`;
+                })
+                .catch(() => {
+                    weatherUpdate.textContent = 'Unable to fetch weather data.';
+                });
+
+            submitBtn.addEventListener('click', () => {
+                const vehicle = vehicleType.value;
+                const passengers = passengerCount.value;
+                const date = document.getElementById('travelDate').value;
+                const price = prices[vehicle] * passengers;
+
+                if (date) {
+                    window.location.href = `confirmation.html?vehicle=${vehicle}&passengers=${passengers}&date=${date}&price=${price}`;
+                } else {
+                    alert('Please select a date before booking.');
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+    </script>
+</body>
+</html>

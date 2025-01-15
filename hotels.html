@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <title>Hotels</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      background-color: #f5f5f5;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #0c1a23;
+      padding: 15px 0;
+      border-bottom: 3px solid #0077cc;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      list-style: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #f0f0f0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: #ff5757;
+      transition: color 0.3s ease;
+    }
+
+    h1 {
+      text-align: center;
+      text-decoration: underline;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1200px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: #333;
+    }
+
+    .card p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .card .contact {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .card .details-btn {
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      margin-top: 10px;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+
+    .card .details-btn:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-section {
+      flex: 1;
+      margin: 10px;
+      min-width: 200px;
+    }
+
+    .footer-section h2 {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      font-size: 14px;
+      color: #bbb;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      color: #fff;
+    }
+
+    .links ul {
+      list-style: none;
+    }
+
+    .links ul li {
+      margin-bottom: 10px;
+    }
+
+    .social a {
+      color: #bbb;
+      font-size: 20px;
+      margin-right: 15px;
+      transition: color 0.3s;
+    }
+
+    .social a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 10px 0;
+      border-top: 1px solid #444;
+      margin-top: 20px;
+    }
+
+    .footer-bottom p {
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    .card .price {
+  font-size: 1rem;
+  color: #28a745;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+    .rating {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .star {
+      font-size: 20px;
+      color: #bbb;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .star:hover,
+    .star.selected,
+    .star:hover~.star {
+      color: #ffb400;
+    }
+
+    @media (min-width: 576px) {
+      .card {
+        width: calc(50% - 40px);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        width: calc(33.333% - 40px);
+      }
+
+      nav ul li a {
+        font-size: 1rem;
+      }
+
+      footer .footer-container {
+        justify-content: space-around;
+        text-align: left;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .card {
+        width: calc(25% - 40px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="plan.html">Plan</a></li>
+      <li><a href="bookme.html">Booking</a></li>
+    </ul>
+
+  </nav>
+  <h1>Hotels In Chitral</h1>
+  <div class="card-container">
+
+
+    <div class="card">
+      <img src="chitralguest.jpg" alt="Hotel Image">
+      <div class="card-content">
+        <h3>Chitral Guest House</h3>
+        <p>Shandur Road Danin, Opposite to chitral Airport, Chitral Pakistan</p>
+        <p class="contact">Contact: +1 234 567 890</p>
+        <p class="price">💵 Price: PKR 12,470 per night</p>
+        <div class="rating">
+          <span class="star" data-value="5">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="1">&#9733;</span>
+        </div>
+        <a href="Chitralguesthouse.html" class="details-btn">Details</a>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <img src="pamir.jpg" alt="Hotel Image">
+      <div class="card-content">
+        <h3>Pamir Riverside Inn Chitral</h3>
+        <p>Royal Gardens, Chitral</p>
+        <p class="contact">Contact: +1 987 654 321</p>
+        <p class="price">💵 Price: PKR 28,284 per night</p>
+        <div class="rating">
+          <span class="star" data-value="5">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="1">&#9733;</span>
+        </div>
+        <a href="hotel2-details.html" class="details-btn">Details</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="green.jpg" alt="Hotel Image">
+      <div class="card-content">
+        <h3>Chitral Green Guest House</h3>
+        <p>Near Chitral Scout Officers Mess</p>
+        <p class="contact">Contact: +1 456 789 012</p>
+        <p class="price">💵 Price: PKR 6,073 per night</p>
+        <div class="rating">
+          <span class="star" data-value="5">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="1">&#9733;</span>
+        </div>
+        <a href="hotel3-details.html" class="details-btn">Details</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="hindukush.jpg" alt="Hotel Image">
+      <div class="card-content">
+        <h3>Hindukush Heights</h3>
+        <p>Hindukush Heights. Dolomtuz, Chitral, Chitral, Pakistan</p>
+        <p class="contact">Contact: 0344 9700800</p>
+        <p class="Email">Email: hhchitral@gmail.com</p>
+        <p class="price">💵 Price: PKR 5,000 per night</p>
+        <div class="rating">
+          <span class="star" data-value="5">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="1">&#9733;</span>
+        </div>
+        <a href="hotel3-details.html" class="details-btn">Details</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="Terichmir.jpg" alt="Hotel Image">
+      <div class="card-content">
+        <h3>Terichmir View Hotel</h3>
+        <p>Terichmir View Hotel, Shahi Masjid Road, Chitral, Pakistan</p>
+        <p class="contact">Contact: 0346 6667565</p>
+        <p class="Email">Email: terichmirview@gmail.com</p>
+        <p class="price">💵 Price: PKR 5,000 per night</p>
+        <div class="rating">
+          <span class="star" data-value="5">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="1">&#9733;</span>
+        </div>
+        <a href="hotel3-details.html" class="details-btn">Details</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="Ayunfortinn.jpg" alt="Hotel Image">
+      <div class="card-content">
+        <h3>Ayun Fort inn</h3>
+        <p>Ayun Village-Chitral District, Chitral, Pakistan</p>
+        <p class="contact">Contact: 0344 5812374</p>
+        <p class="Email">Email: ayunfortinn@gmail.com</p>
+        <p class="price">💵 Price: PKR 5,000 per night</p>
+        <div class="rating">
+          <span class="star" data-value="5">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="1">&#9733;</span>
+        </div>
+        <a href="hotel3-details.html" class="details-btn">Details</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="Riverbreeze.jpg" alt="Hotel Image">
+      <div class="card-content">
+        <h3>River Breeze Hotel And Resturant</h3>
+        <p>Syedabad</p>
+        <p class="contact">Contact: (0943) 490300</p>
+        <p class="Email">Email: ah7695917@gmail.com</p>
+        <p class="price">💵 Price: PKR 5,000 per night</p>
+        <div class="rating">
+          <span class="star" data-value="5">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="1">&#9733;</span>
+        </div>
+        <a href="hotel3-details.html" class="details-btn">Details</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="chitralinn.jpg" alt="Hotel Image">
+      <div class="card-content">
+        <h3>Chitral Inn Resort (Kalash Valley)</h3>
+        <p>Chitral Inn Polo Ground Road Jamuzhi ChitralKrakal Bumburat Kalash, Chitral, Pakistan</p>
+        <p class="contact">Contact:
+          0346 6666158</p>
+        <p class="Email">Email: chitralinn@gmail.com</p>
+        <p class="price">💵 Price: PKR 5,000 per night</p>
+        <div class="rating">
+          <span class="star" data-value="5">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="1">&#9733;</span>
+        </div>
+        <a href="hotel3-details.html" class="details-btn">Details</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="happyGuest.jpg" alt="Hotel Image">
+      <div class="card-content">
+        <h3>Happy Guest House Kalash Valley</h3>
+        <p>Bumburate, Kalash, Batrik, Chitral, Khyber Pakhtunkhwa, Pakistan</p>
+        <p class="contact">Contact: 03449701123</p>
+        <p class="Email">Email: ishfaqsagar@gmail.com</p>
+        <p class="price">💵 Price: PKR 5,000 per night</p>
+        <div class="rating">
+          <span class="star" data-value="5">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="1">&#9733;</span>
+        </div>
+        <a href="hotel3-details.html" class="details-btn">Details</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="gahirat.jpg" alt="Hotel Image">
+      <div class="card-content">
+        <h3>Gahirat Castle</h3>
+        <p>Gabhirat, Chitrāl, Chitral, Khyber Pakhtunkhwa, Pakistan</p>
+        <p class="contact">Contact: 03459777414</p>
+        <p class="Email">Email: saifaligehret78@gmail.com</p>
+        <p class="price">💵 Price: PKR 5,000 per night</p>
+        <div class="rating">
+          <span class="star" data-value="5">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="1">&#9733;</span>
+        </div>
+        <a href="hotel3-details.html" class="details-btn">Details</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="Legendary.jpg" alt="Hotel Image">
+      <div class="card-content">
+        <h3>Legendary Hotel Chitral</h3>
+        <p>
+          Near DC Office Jang Bazar , Chitral, Pakistan</p>
+        <p class="contact">Contact: 03456290647</p>
+        <p class="price">💵 Price: PKR 5,000 per night</p>
+        <div class="rating">
+          <span class="star" data-value="5">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="1">&#9733;</span>
+        </div>
+        <a href="hotel3-details.html" class="details-btn">Details</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src="benazir.jpg" alt="Hotel Image">
+      <div class="card-content">
+        <h3>Benazir Hotel (Kalash Valley)</h3>
+        <p>Anish, Kalash Valley Bumburate , Chitral, Pakistan</p>
+        <p class="contact">Contact: 0344 1193331</p>
+        <p class="Email">Email: benazirhotel@gmail.com</p>
+        <p class="price">💵 Price: PKR 5,000 per night</p>
+        <div class="rating">
+          <span class="star" data-value="5">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="1">&#9733;</span>
+        </div>
+        <a href="hotel3-details.html" class="details-btn">Details</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Function to handle the rating interaction
+    document.querySelectorAll('.rating').forEach(rating => {
+      rating.addEventListener('click', function (e) {
+        if (e.target.classList.contains('star')) {
+          const stars = Array.from(this.children);
+          const clickedValue = e.target.getAttribute('data-value');
+
+          // Update the selected state of stars
+          stars.forEach(star => {
+            if (star.getAttribute('data-value') <= clickedValue) {
+              star.classList.add('selected');
+            } else {
+              star.classList.remove('selected');
+            }
+          });
+        }
+      });
+    });
+  </script>
+  <footer>
+    <div class="footer-container">
+
+      <div class="footer-section about">
+        <h2>About Us</h2>
+        <p>We specialize in connecting tourists with reliable byroad transportation options and convenient hotel booking
+          services to make your travel experience seamless and enjoyable.</p>
+      </div>
+
+      <div class="footer-section links">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section contact-info">
+        <h2>Contact Us</h2>
+        <p>📍 Address: 123 Travel Street, Adventure City</p>
+        <p>📞 Phone: <a href="tel:03239167702">03239167702</a></p>
+        <p>✉️ Email: <a href="mailto:info@travelbookings.com">info@travelbookings.com</a></p>
+        <p>💬 WhatsApp: <a href="https://wa.me/1234567890" target="_blank">Chat with Us</a></p>
+      </div>
+
+      <div class="footer-section social">
+        <h2>Follow Us</h2>
+        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 Travel & Hotel Booking | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</body>
+
+</html>

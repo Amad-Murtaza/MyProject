@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation</title>
+    <style>
+        .container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 1s ease-in;
+    width: 90%;
+    max-width: 500px;
+}
+header h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+.confirmation-details p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+.next-steps p {
+    margin: 20px 0;
+    font-size: 1rem;
+}
+button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+button:hover {
+    background: #0056b3;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Booking Confirmation</h1>
+        </header>
+
+        <main>
+            <div class="confirmation-details">
+                <h2>Thank you for booking with us!</h2>
+                <p><strong>Vehicle Type:</strong> <span id="vehicleType">Loading...</span></p>
+                <p><strong>Number of Passengers:</strong> <span id="passengerCount">Loading...</span></p>
+                <p><strong>Travel Date:</strong> <span id="travelDate">Loading...</span></p>
+                <p><strong>Total Price:</strong> PKR <span id="totalPrice">Loading...</span></p>
+            </div>
+
+            <div class="next-steps">
+                <p>If you have any questions, feel free to <a href="https://wa.me/?text=Hi%20I%20have%20a%20question%20about%20my%20booking." target="_blank">contact us on WhatsApp</a>.</p>
+                <button id="newBookingBtn"><a href="Chitratoislamabad.html">Make Another Booking</a></button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Extract booking details from URL parameters
+            const params = new URLSearchParams(window.location.search);
+            const vehicleType = params.get('vehicle');
+            const passengerCount = params.get('passengers');
+            const travelDate = params.get('date');
+            const totalPrice = params.get('price');
+
+            // Update the DOM with booking details
+            document.getElementById('vehicleType').textContent = vehicleType;
+            document.getElementById('passengerCount').textContent = passengerCount;
+            document.getElementById('travelDate').textContent = travelDate;
+            document.getElementById('totalPrice').textContent = totalPrice;
+
+            // Handle "Make Another Booking" button click
+            document.getElementById('newBookingBtn').addEventListener('click', () => {
+                window.location.href = 'index.html'; // Redirect back to the booking page
+            });
+        });
+    </script>
+</body>
+</html>

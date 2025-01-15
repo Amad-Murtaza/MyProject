@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css">
+    <title>Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0c1a23;
+            padding: 15px;
+            border-bottom: 3px solid #0077cc;
+        }
+
+        .nav-left,
+        .nav-center,
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-center ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-center ul li {
+            list-style: none;
+        }
+
+        .nav-center ul li a {
+            text-decoration: none;
+            color: #f0f0f0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .nav-center ul li a:hover {
+            color: #ff5757;
+            transition: color 0.3s ease;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 5px;
+            background-color: #fff;
+            margin-right: 20px;
+        }
+
+        .search-input {
+            border: none;
+            padding: 5px;
+            outline: none;
+            width: 150px;
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #0077cc;
+            font-size: 18px;
+        }
+
+        .search-btn:hover {
+            color: #005fa3;
+        }
+
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .register-btn,
+        .signin-btn {
+            color: #f0f0f0;
+            background-color: #0077cc;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .register-btn:hover,
+        .signin-btn:hover {
+            background-color: #005fa3;
+        }
+
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            min-height: 100vh;
+            background: linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)), url('chitral.jpg') center/cover no-repeat;
+        }
+
+        .text-box {
+            max-width: 700px;
+            padding: 20px;
+        }
+
+        .text-box h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .text-box p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            text-decoration: solid;
+            margin-top: 50px;
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 800px;
+            margin: 50px auto;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .gallery-images {
+            position: relative;
+            width: 100%;
+            height: 450px;
+        }
+
+        .gallery-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .gallery-images img.active {
+            display: block;
+        }
+
+        .gallery-news {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery-news h2 {
+            font-size: 1.5rem;
+            color: #0077cc;
+            margin-bottom: 10px;
+        }
+
+        .gallery-news p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+
+        .nav-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .nav-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .offer-section {
+            text-align: center;
+            text-decoration: none;
+            padding: 50px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
+            max-width: 900px;
+            background-color: #efcc6e;
+        }
+
+        .offer-section h2 {
+            font-size: 2rem;
+            color: #0077cc;
+            margin-bottom: 15px;
+        }
+
+        .offer-section p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .service {
+            background-color: #cfbeae;
+            padding: 20px;
+            width: 260px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+        }
+
+        .service h3 {
+            font-size: 1.5rem;
+            color: rgb(88, 78, 22);
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 30px 5%;
+            max-width: 1200px;
+            margin: auto;
+            background-color: #3804;
+        }
+
+        .card {
+            background-color: #dabab3;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .book-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #0077cc;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .book-btn:hover {
+            background-color: #005fa3;
+        }
+
+    }
+        .container {
+            display: flex;
+            overflow: hidden;
+            width: 80%;
+            margin: 20px auto;
+            position: relative;
+        }
+        .card-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .card {
+            flex: 0 0 300px;
+            margin: 10px;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 15px;
+        }
+        .card h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .card p {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 5px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 100px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin: 10px;
+            min-width: 200px;
+        }
+
+        .footer-section h2 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 14px;
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .links ul {
+            list-style: none;
+        }
+
+        .links ul li {
+            margin-bottom: 10px;
+        }
+
+        .social a {
+            color: #bbb;
+            font-size: 20px;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .social a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #444;
+            margin-top: 20px;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        .property-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .property-section h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+
+        .property-cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+
+        .property-card {
+            flex: 1;
+            max-width: 18%;
+            text-decoration: none;
+            color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .property-card:hover {
+            transform: scale(1.05);
+        }
+
+
+        .card-image {
+            width: 100%;
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        .property-card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-section {
+                margin-bottom: 20px;
+                min-width: 100%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+
+            .footer-section h2 {
+                font-size: 16px;
+            }
+
+            .footer-section p,
+            .footer-section a {
+                font-size: 13px;
+            }
+
+            .social a {
+                font-size: 18px;
+                margin-right: 10px;
+            }
+
+            .footer-bottom p {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-left">
+            <div class="logo">
+                <a href="home.html"><img src="logo.png" alt="Logo" /></a>
+            </div>
+        </div>
+
+        <div class="nav-center">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="ChooseDestination.html">TravelDestination</a></li>
+                <li><a href="bookme.html">Booking</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <!-- Search Bar -->
+            <form class="search-form" action="search.html" method="get">
+                <input type="text" placeholder="Search..." name="query" class="search-input">
+                <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+            </form>
+
+            
+            <div class="auth-buttons">
+                <a href="register.html" class="register-btn">Register</a>
+                <a href="signin.html" class="signin-btn">Sign In</a>
+            </div>
+        </div>
+    </nav>
+    <section class="header">
+        <div class="text-box">
+            <h1>Welcome to TravelNest: Your One-Stop Transportation and Hotel Booking Solution!</h1>
+            <p>At TravelNest, we believe that your journey begins long before you reach your destination. Our innovative
+                platform seamlessly integrates transportation and hotel bookings, ensuring that every aspect of your
+                travel experience is smooth and hassle-free. Whether you're planning a weekend getaway, a business trip,
+                or an adventurous vacation, we've got you covered.</p>
+        </div>
+    </section>
+
+    <div class="gallery-container">
+        <div class="gallery-images">
+            <img src="kalash2.jpeg" alt="Image 1" class="active">
+            <img src="kalash3.jpeg" alt="Image 2" class="active">
+            <img src="Kalash1.jpg" alt="Image 3" class="active">
+            <img src="news1.jpg" alt="Image 4" class="active">
+            <img src="Birmogh.jpg" alt="Image 5" class="active">
+            <img src="choimus.jpeg" alt="Image 6" class="active">
+        </div>
+
+        <div class="gallery-news">
+            <h2>News Headline 1</h2>
+            <p>This is the news description for image 1. Get the latest updates and news about your favorite travel
+                destinations.</p>
+        </div>
+
+        <div class="nav-buttons">
+            <button onclick="prevImage()">❮ Prev</button>
+            <button onclick="nextImage()">Next ❯</button>
+        </div>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll(".gallery-images img");
+        const newsHeadlines = [
+            "News Headline 1",
+            "News Headline 2",
+            "News Headline 3",
+            "News Headline 4",
+            "News Headline 5",
+            "News Headline 6"
+        ];
+        const newsDescriptions = [
+            "This is the news description for image 1.",
+            "This is the news description for image 2.",
+            "This is the news description for image 3.",
+            "This is the news description for image 4.",
+            "This is the news description for image 5.",
+            "This is the news description for image 6"
+        ];
+
+        let currentIndex = 0;
+        const headlineElement = document.querySelector(".gallery-news h2");
+        const descriptionElement = document.querySelector(".gallery-news p");
+
+        function showImage(index) {
+            images.forEach((img, i) => img.classList.toggle("active", i === index));
+            headlineElement.textContent = newsHeadlines[index];
+            descriptionElement.textContent = newsDescriptions[index];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+
+        setInterval(nextImage, 5000); // Change image every 5 seconds
+    </script>
+
+
+    <div class="offer-section">
+        <h2>Special Offers</h2>
+        <p>Check out our latest offers and discounts on transport services.</p>
+        <div class="services">
+            <div class="service">
+                <div class="icon taxi"></div>
+                <h3><a href="taxi-service.html">Taxi Service</a></h3>
+                <p>Quick and reliable taxi services available 24/7.</p>
+            </div>
+            <div class="service">
+                <div class="icon bus"></div>
+                <h3><a href="Rental.html">Rental Cars</a></h3>
+                <p>Comfortable and affordable bus rides for daily commutes.</p>
+            </div>
+            <div class="service">
+                <div class="icon logistics"></div>
+                <h3><a href="logistics.html">Logistics</a></h3>
+                <p>Efficient logistics solutions for businesses.</p>
+            </div>
+        </div>
+    </div>
+    <h1>Pick Your Destination For Holidays</h1>
+    <div class="card-container">
+        <div class="card">
+            <img src="Kalash1.jpg" alt="Rumboor">
+            <div class="info">
+                <h3>Rumboor, Chitral</h3>
+                <a href="Rumboor.html" target="_blank" class="book-btn">See Details</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="kalash2.jpeg" alt="Bumboorat">
+            <div class="info">
+                <h3>Bumboorat, Chitral </h3>
+                <a href="" target="_blank" class="book-btn">See Details</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="kalash3.jpeg" alt="Berir">
+            <div class="info">
+                <h3>Berir, Chitral</h3>
+                <a href="" target="_blank" class="book-btn">See Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="garam.jpg" alt="Garamchashma">
+            <div class="info">
+                <h3>Gramchashma, Chitral Lower</h3>
+                <a href="" target="_blank" class="book-btn">See Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Birmogh.jpg" alt="Birmoghlasht">
+            <div class="info">
+                <h3>BirmoghLasht, Chitral Lower</h3>
+                <a href="" target="_blank" class="book-btn">See Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="fort'.jpeg" alt="Chitral Fort">
+            <div class="info">
+                <h3>Chitral Fort, Chitral Lower</h3>
+                <a href="" target="_blank" class="book-btn">See Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="museum.jpg" alt="Chitral Museum">
+            <div class="info">
+                <h3>Chitral Museum, Chitral Lower</h3>
+                <a href="" target="_blank" class="book-btn">See Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="park.jpg" alt="Chitral gol nationl park">
+            <div class="info">
+                <h3>Chitral Gol National Park, Chitral Lower</h3>
+                <a href="" target="_blank" class="book-btn">See Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="ayun.jpg" alt="Ayun">
+            <div class="info">
+                <h3>Ayun, Chitral Lower</h3>
+                <a href="" target="_blank" class="book-btn">See Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Chitral Fort">
+            <div class="info">
+                <h3>, Chitral Lower</h3>
+                <a href="" target="_blank" class="book-btn">See Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Chitral Fort">
+            <div class="info">
+                <h3>Chitral Fort, Chitral Lower</h3>
+                <a href="" target="_blank" class="book-btn">See Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Chitral Fort">
+            <div class="info">
+                <h3>Chitral Fort, Chitral Lower</h3>
+                <a href="https://bookinglink.com" target="_blank" class="book-btn">See Details</a>
+            </div>
+        </div>
+    </div>
+
+    <h1>Events And Festival</h1>
+
+    <div class="container">
+        <div class="card-wrapper" id="cardWrapper">
+            <div class="card">
+                <img src="shandur.jpg" alt="Event">
+                <div class="card-content">
+                    <h3>Shandur Polo Festival</h3>
+                    <p>Experience the thrill of freestyle polo at the world’s highest polo ground in Shandur Pass, Chitral! Held every July, this iconic festival showcases intense matches between Chitral and Gilgit-Baltistan teams, set against breathtaking mountain landscapes. Celebrate the rich culture with traditional music, dances, and local crafts. Don’t miss this unique blend of sportsmanship and heritage!</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="choimus.jpeg" alt="Event">
+                <div class="card-content">
+                    <h3>Chowmos Festival</h3>
+                    <p>The Chawmos Festival is a vibrant winter solstice celebration of the Kalash people in Chitral, Pakistan. Marking the end of the harvest, it features rituals, feasts, dancing, and prayers for prosperity, showcasing the unique culture and spirituality of the Kalash.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Chilam.jpg" alt="Event">
+                <div class="card-content">
+                    <h3>Chilamjusht</h3>
+                    <p>The Chilamjusht Festival, also known as Joshi, is a lively spring festival celebrated by the Kalash people in Chitral, Pakistan. Held in May, it marks the arrival of spring with colorful attire, traditional dances, music, and rituals to honor deities and pray for a bountiful harvest. This festival is a vibrant expression of Kalash culture and joy.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="uchal.jpeg" alt="Event">
+                <div class="card-content">
+                    <h3>Uchal Festival</h3>
+                    <p>The Uchal Festival is a summer celebration of the Kalash people in Chitral, Pakistan, held in August to mark the seasonal harvest. Featuring traditional songs, dances, and rituals, it honors the Kalash deities and gives thanks for nature’s bounty. The festival is a vibrant display of the Kalash's unique culture and traditions.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="qaqlasht.jpg" alt="Event">
+                <div class="card-content">
+                    <h3>Jashn-E-Qaqlasht</h3>
+                    <p>The Qaqlasht Festival is a vibrant spring celebration held on the Qaqlasht plateau near Chitral, Pakistan. It showcases traditional sports like polo, tug-of-war, and archery, alongside cultural performances, music, and dances. Celebrated in April, it promotes the region's heritage and offers breathtaking views of the surrounding mountains, making it a unique blend of culture and nature.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="navroz.jpg" alt="Event">
+                <div class="card-content">
+                    <h3>Navroz</h3>
+                    <p>Celebrated on March 21, Navroz marks the Persian New Year and the arrival of spring. The festival is observed with family gatherings, traditional foods, and prayers for renewal and prosperity.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="broghil.jpg" alt="Event">
+                <div class="card-content">
+                    <h3>Broghil Festival</h3>
+                    <p>
+                        The Broghil Festival is a unique cultural event held in the Broghil Valley, located in the remote northern region of Chitral, Pakistan, near the Afghanistan border. This festival, typically held in August, celebrates the traditional lifestyle, sports, and cultural heritage of the people living in the valley, including the Khowar and Wakhi communities.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="" alt="Event">
+                <div class="card-content">
+                    <h3>Festival 8</h3>
+                    <p>About Festival 8</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Event">
+                <div class="card-content">
+                    <h3>Festival 9</h3>
+                    <p>About Festival 9</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Event">
+                <div class="card-content">
+                    <h3>Festival 10</h3>
+                    <p>About Festival 10</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="button" onclick="prevCard()">Prev</button>
+        <button class="button" onclick="nextCard()">Next</button>
+    </div>
+
+    <script>
+       let currentIndex = 0;
+
+function updateCards() {
+    const cardWrapper = document.getElementById("cardWrapper");
+    const cardWidth = document.querySelector(".card").offsetWidth + 20; // card width + margin
+    cardWrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+}
+
+function prevCard() {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateCards();
+    }
+}
+
+function nextCard() {
+    const cardCount = document.querySelectorAll(".card").length;
+    const cardWidth = document.querySelector(".card").offsetWidth + 20; // card width + margin
+    const containerWidth = document.querySelector(".container").offsetWidth;
+    const visibleCards = Math.floor(containerWidth / cardWidth);
+
+    if (currentIndex < cardCount - visibleCards) {
+        currentIndex++;
+        updateCards();
+    }
+}
+    </script>
+   
+    <div class="property-section">
+        <h2>Browse by Property</h2>
+        <div class="property-cards">
+            <a href="hotels.html" class="property-card">
+                <div class="card-image" style="background-image: url('chitralguest.jpg');"></div>
+                <h3>Hotels & Guest House</h3>
+            </a>
+            <a href="restaurants.html" class="property-card">
+                <div class="card-image" style="background-image: url('rosemary.jpg');"></div>
+                <h3>Restaurants</h3>
+            </a>
+            <a href="Resorts.html" class="property-card">
+                <div class="card-image" style="background-image: url('PTDC.jpg');"></div>
+                <h3>Resorts</h3>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-section about">
+                <h2>About Us</h2>
+                <p>We specialize in connecting tourists with reliable byroad transportation options and convenient hotel
+                    booking services to make your travel experience seamless and enjoyable.</p>
+            </div>
+
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact-info">
+                <h2>Contact Us</h2>
+                <p>📍 Address: 123 Travel Street, Adventure City</p>
+                <p>📞 Phone: <a href="tel:03239167702">03239167702</a></p>
+                <p>✉️ Email: <a href="mailto:info@travelbookings.com">info@travelbookings.com</a></p>
+                <p>💬 WhatsApp: <a href="https://wa.me/1234567890" target="_blank">Chat with Us</a></p>
+            </div>
+
+            <div class="footer-section social">
+                <h2>Follow Us</h2>
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="https://www.twitter.com" target="_blank" aria-label="Twitter"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Travel & Hotel Booking | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

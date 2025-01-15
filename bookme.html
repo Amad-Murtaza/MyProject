@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Me</title>
+    <style>
+      * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #0c1a23;
+            padding: 15px 0;
+            border-bottom: 3px solid #0077cc;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f0f0f0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ff5757;
+            transition: color 0.3s ease;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .contact-options {
+            margin-top: 20px;
+        }
+
+        .contact-option {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .contact-icon {
+            margin-right: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+          <ul>
+            <li><a href="home.html"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="ChooseDestination.html">TravelDestination</a></li>
+            <li><a href="bookme.html">Booking</a></li>
+        </ul>
+        </nav>
+    </header>
+    <div class="container">
+      <h1>Book Your Stay</h1>
+      <form>
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" required>
+
+          <label for="check-in">Check-in Date:</label>
+          <input type="date" id="check-in" name="check-in" required>
+
+          <label for="check-out">Check-out Date:</label>
+          <input type="date" id="check-out" name="check-out" required>
+
+          <label for="guests">Number of Guests:</label>
+          <select id="guests" name="guests">
+              <option value="1">1 Guest</option>
+              <option value="2">2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+          </select>
+
+          <button type="submit">Book Now</button>
+      </form>
+
+      <div class="contact-options">
+          <h2>Contact Us</h2>
+          <div class="contact-option">
+              <i class="fas fa-phone contact-icon"></i>
+              <a href="tel:+923239167702">+923239167702</a> 
+          </div>
+          <div class="contact-option">
+              <i class="fab fa-whatsapp contact-icon"></i>
+              <a href="https://wa.me/1234567890" target="_blank">WhatsApp</a>
+          </div>
+      </div>
+  </div>
+
+  <script>
+  // Get the phone link element
+  const phoneLink = document.getElementById('phoneLink');
+
+// Add click event listener to the phone link
+phoneLink.addEventListener('click', () => {
+    // Track phone click event (optional)
+    // You can send data to analytics services here
+    console.log('Phone link clicked');
+});
+
+// Get the WhatsApp link element
+const whatsappLink = document.getElementById('whatsappLink');
+
+// Create the WhatsApp link URL
+const phoneNumber = '+1234567890'; // Replace with your phone number
+const whatsappUrl = `https://wa.me/${phoneNumber}`;
+
+// Set the href attribute of the WhatsApp link
+whatsappLink.href = whatsappUrl;
+
+// Add click event listener to the WhatsApp link
+whatsappLink.addEventListener('click', () => {
+    // Track WhatsApp click event (optional)
+    console.log('WhatsApp link clicked');
+});
+  </script>
+</body>
+
+</html>

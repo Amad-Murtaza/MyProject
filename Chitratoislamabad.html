@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitral To Islamabad</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #faf7f0;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #0c1a23;
+            padding: 15px 0;
+            border-bottom: 3px solid #0077cc;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f0f0f0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ff5757;
+            transition: color 0.3s ease;
+        }
+        .header {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            margin: 20px auto;
+            max-width: 1200px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .company {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .company h3 {
+            margin: 0;
+            color: #000000;
+        }
+
+        .vehicles {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            
+        }
+
+        .vehicle-card {
+            background: #f9f9f9;
+            margin: 10px;
+            padding: 15px;
+            flex: 1 1 calc(33% - 20px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .vehicle-card:hover {
+            background: #125d80;
+        }
+        .vehicles h3{
+            color: black;
+        }
+        .vehicles p{
+            color: black;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgb(2, 4, 37);
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .popup img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .popup h3 {
+            margin: 10px 0;
+        }
+
+        .popup p {
+            margin: 5px 0;
+        }
+
+        .popup .driver-list {
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        .driver-item {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .booking-options {
+            padding: 20px;
+            text-align: center;
+            background: #f0f8ff;
+        }
+
+        .booking-options button, .booking-options a {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            color: white;
+        }
+
+        .whatsapp {
+            background: #25d366;
+        }
+
+        .online {
+            background: #007bff;
+        }
+
+        .driver {
+            background: #ffc107;
+        }
+
+        .close-btn {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background: #d9534f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background: #c9302c;
+        }
+    
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="plan.html">Plan</a></li>
+            <li><a href="bookme.html">Booking</a></li>
+        </ul>
+    </nav>
+    <div class="header">
+        <h1>Transport Booking System</h1>
+    </div>
+
+    <div class="container">
+        <div class="company">
+            <h3>Company A - City Center Stop</h3>
+        </div>
+        <div class="vehicles">
+            <div class="vehicle-card" onclick="showPopup('Car', [{name: 'John Smith', contact: '+123456789', img: 'driver1.jpg'}, {name: 'Emily Brown', contact: '+987654321', img: 'driver2.jpg'}])">
+                <h3>Car</h3>
+                <p>Price: $20/hour</p>
+                <p>Passengers: 4</p>
+            </div>
+            <div class="vehicle-card" onclick="showPopup('Van', [{name: 'Jane Doe', contact: '+987654321', img: 'driver3.jpg'}, {name: 'Chris Green', contact: '+1122334455', img: 'driver4.jpg'}])">
+                <h3>Van</h3>
+                <p>Price: $35/hour</p>
+                <p>Passengers: 8</p>
+            </div>
+            <div class="vehicle-card" onclick="showPopup('Bus', [{name: 'Mike Johnson', contact: '+1122334455', img: 'driver5.jpg'}, {name: 'Sarah Lee', contact: '+4455667788', img: 'driver6.jpg'}])">
+                <h3>Bus</h3>
+                <p>Price: $50/hour</p>
+                <p>Passengers: 40</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="booking-options">
+        <a href="https://wa.me/03239167702" class="whatsapp">WhatsApp (03239167702)</a>
+        <a href="https://www.example.com/online-booking" class="online">Online Booking</a>
+        <button class="driver" onclick="showPopup('Call Driver', [{name: 'Support', contact: '+123456789', img: 'driver1.jpg'}])">Call Driver</button>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closePopup()"></div>
+
+    <div class="popup" id="popup">
+        <h3 id="popup-title"></h3>
+        <div class="driver-list" id="driver-list"></div>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        function showPopup(vehicle, drivers) {
+            document.getElementById('popup-title').textContent = `${vehicle} Drivers`;
+            const driverList = document.getElementById('driver-list');
+            driverList.innerHTML = '';
+            drivers.forEach(driver => {
+                const driverItem = document.createElement('div');
+                driverItem.classList.add('driver-item');
+                driverItem.innerHTML = `
+                    <img src="${driver.img}" alt="Driver Image">
+                    <h4>${driver.name}</h4>
+                    <p>Contact: ${driver.contact}</p>
+                `;
+                driverList.appendChild(driverItem);
+            });
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+  
+</body>
+
+</html>

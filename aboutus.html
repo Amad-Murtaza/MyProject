@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About TrevWithUs</title>
+  <style>
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #0c1a23;
+            padding: 15px 0;
+            border-bottom: 3px solid #0077cc;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f0f0f0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ff5757;
+            transition: color 0.3s ease;
+        }
+        h1{
+          text-align: center;
+          text-decoration: solid;
+          margin-top: 30px;
+          margin-bottom: 30px;
+        }
+        .about-us-image-section {
+    width: 100%;
+    height: 400px; 
+    background-image: url('Chitralqaq.jpg'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Overlay Text */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.image-overlay h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.image-overlay p {
+    font-size: 1.5em;
+    max-width: 800px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 50px auto;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.section {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.divider {
+  width: 2px;
+  background-color: #cccccc;
+  margin: 0 10px;
+}
+
+h2 {
+  color: #333333;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #666666;
+  line-height: 1.6;
+}
+footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin: 10px;
+            min-width: 200px;
+        }
+
+        .footer-section h2 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 14px;
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .links ul {
+            list-style: none;
+        }
+
+        .links ul li {
+            margin-bottom: 10px;
+        }
+
+        .social a {
+            color: #bbb;
+            font-size: 20px;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .social a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #444;
+            margin-top: 20px;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            color: #bbb;
+        }
+  </style>
+</head>
+<body>
+   <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="ChooseDestination.html">TravelDestination</a></li>
+            <li><a href="bookme.html">Booking</a></li>
+        </ul>
+    </nav>
+    <section class="about-us-image-section">
+        <div class="image-overlay">
+          <h1>About Us</h1>
+          <p style="color: white;">Discover the beauty of Chitral and experience unforgettable journeys with us.</p>
+        </div>
+      </section>
+      <h1>What We Do</h1>
+      <div class="container">
+        <div class="section">
+          <h2>Plan Your Journey</h2>
+          <p>Our platform simplifies your travel planning. Discover byroad transportation options tailored to your itinerary. From scenic drives to efficient routes, we ensure you find the perfect transportation service to make your trip smooth and enjoyable.</p>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+          <h2>Book Comfortable Stays</h2>
+          <p>Say goodbye to the hassle of finding the right accommodation. Our website offers a seamless hotel room booking system, showcasing top-rated hotels and cozy guesthouses. Compare prices, read reviews, and reserve the perfect place to stay with just a few clicks.</p>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+          <h2>Experience Convenience</h2>
+          <p>Enjoy the convenience of combining travel and accommodation planning in one place. Whether you're a solo traveler or planning a family vacation, our user-friendly platform ensures a stress-free experience from start to finish.</p>
+        </div>
+      </div>
+      <footer>
+        <div class="footer-container">
+
+            <div class="footer-section about">
+                <h2>About Us</h2>
+                <p>We specialize in connecting tourists with reliable byroad transportation options and convenient hotel
+                    booking services to make your travel experience seamless and enjoyable.</p>
+            </div>
+
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact-info">
+                <h2>Contact Us</h2>
+                <p>📍 Address: 123 Travel Street, Adventure City</p>
+                <p>📞 Phone: <a href="tel:03239167702">03239167702</a></p>
+                <p>✉️ Email: <a href="mailto:info@travelbookings.com">info@travelbookings.com</a></p>
+                <p>💬 WhatsApp: <a href="https://wa.me/1234567890" target="_blank">Chat with Us</a></p>
+            </div>
+
+            <div class="footer-section social">
+                <h2>Follow Us</h2>
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="https://www.twitter.com" target="_blank" aria-label="Twitter"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Travel & Hotel Booking | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

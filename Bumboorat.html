@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bumboorat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #faf7f0;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #0c1a23;
+            padding: 15px 0;
+            border-bottom: 3px solid #0077cc;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f0f0f0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ff5757;
+            transition: color 0.3s ease;
+        }
+
+
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #faf7f0;
+            padding: 1rem;
+            border-bottom: 1px solid #0077cc;
+        }
+
+        .navbar a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+        }
+
+        .navbar a:hover {
+            color: #ff6347; 
+        }
+
+        header {
+    background-color: #007BFF;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #000000;
+}
+
+h3, h4 {
+    color: #000000;
+}
+
+.gallery {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.gallery img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Hotels Section */
+.hotel {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-left: 4px solid #2a4365;
+    background-color:#007BFF;
+}
+
+/* Road Conditions Section */
+article {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #007BFF;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #2a4365;
+    color: white;
+    margin-top: 30px;
+}
+        footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.footer-section h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-section p,
+.footer-section a {
+    font-size: 14px;
+    color: #bbb;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: #fff;
+}
+
+.links ul {
+    list-style: none;
+}
+
+.links ul li {
+    margin-bottom: 10px;
+}
+
+.social a {
+    color: #bbb;
+    font-size: 20px;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+.social a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #bbb;
+}
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.html"><i class="fa fa-home" aria-hidden="true"></i>Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="plan.html">Plan</a></li>
+            <li><a href="bookme.html">Booking</a></li>
+            <li><a href="#">Hotels</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Discover Chitral</h1>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About the Place</h2>
+            <p style="color: black;">
+                Chitral, a valley in northern Pakistan, is known for its breathtaking scenery, diverse culture, and the towering Hindu Kush mountain range. It's a destination for nature lovers, adventurers, and history enthusiasts.
+            </p>
+            <div class="gallery">
+                <img src="Bumburetvalley1.jpg" alt="Mountain View">
+                <img src="bumburetvalley2.jpg" alt="River in Chitral">
+                <img src="kalash2.jpeg" alt="Traditional House">
+            </div>
+        </section>
+
+        <!-- Hotels Section -->
+        <section id="hotels">
+            <h2>Hotels in Chitral</h2>
+            <div class="hotel">
+                <h3>Hotel Chitral Inn</h3>
+                <p>Located in the heart of Chitral, offering modern amenities with traditional charm.</p>
+            </div>
+            <div class="hotel">
+                <h3>Hindu Kush Heights</h3>
+                <p>A luxury resort with panoramic views of the mountains.</p>
+            </div>
+            <div class="hotel">
+                <h3>PTDC Motel</h3>
+                <p>Government-operated motel ideal for budget travelers.</p>
+            </div>
+        </section>
+
+        <!-- Road Conditions News -->
+        <section id="road-conditions">
+            <h2>Road Conditions News</h2>
+            <article>
+                <h4>Lowari Tunnel Update</h4>
+                <p>The Lowari Tunnel is open for traffic, easing access to Chitral despite heavy snowfall.</p>
+            </article>
+            <article>
+                <h4>Shandur Pass Alert</h4>
+                <p>Travelers are advised to check weather forecasts before heading to Shandur Pass due to icy roads.</p>
+            </article>
+        </section>
+    </div>
+    <footer>
+        <div class="footer-container">
+           
+            <div class="footer-section about">
+                <h2>About Us</h2>
+                <p>We specialize in connecting tourists with reliable byroad transportation options and convenient hotel booking services to make your travel experience seamless and enjoyable.</p>
+            </div>
+    
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-section contact-info">
+                <h2>Contact Us</h2>
+                <p>📍 Address: 123 Travel Street, Adventure City</p>
+                <p>📞 Phone: <a href="tel:03239167702">03239167702</a></p>
+                <p>✉️ Email: <a href="mailto:info@travelbookings.com">info@travelbookings.com</a></p>
+                <p>💬 WhatsApp: <a href="https://wa.me/1234567890" target="_blank">Chat with Us</a></p>
+            </div>
+    
+            <div class="footer-section social">
+                <h2>Follow Us</h2>
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    
+     
+        <div class="footer-bottom">
+            <p>&copy; 2024 Travel & Hotel Booking | All Rights Reserved</p>
+        </div>
+    </footer>
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+    
+</body>
+
+</html>
